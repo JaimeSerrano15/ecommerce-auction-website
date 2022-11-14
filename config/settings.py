@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'auctions.User'
+AUTH_USER_MODEL = 'auctions_User'
 
 
 # Password validation
