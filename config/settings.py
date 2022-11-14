@@ -1,4 +1,5 @@
 import os
+import django_heroku
 from decouple import config
 
 
@@ -8,10 +9,11 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-]
+#ALLOWED_HOSTS = [
+#    'localhost',
+#    '127.0.0.1',
+#]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -62,7 +64,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DATABASE_NAME'),
@@ -70,6 +72,17 @@ DATABASES = {
         'PASSWORD': config('DATABASE_PASS'),
         'HOST': config('DATABASE_HOST'),
         'PORT': '', # leave blank so the default port is selected
+    }
+} """
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5nc2nadgsh4sr',
+        'USER': 'knbowmkhpfzkbe',
+        'PASSWORD': '5a701d171a41e4cf8c3a885ab03875f3bd770287c8c7559f9ee166229f62ed52',
+        'HOST': 'ec2-34-235-198-25.compute-1.amazonaws.com',
+        'PORT': '5432', # leave blank so the default port is selected
     }
 }
 
@@ -113,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
 # Location where Django collects all static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
