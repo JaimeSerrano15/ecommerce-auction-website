@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local
-    'auctions',
+    #'auctions',
 ]
 
 MIDDLEWARE = [
