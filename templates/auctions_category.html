@@ -8,7 +8,7 @@
     
     <!-- Heading -->
     <div class='sidebar-heading'>
-        Categories
+        Categorias
     </div>
 
     {% for category in categories %}
@@ -29,7 +29,7 @@
 {% block body %}
 
     <!-- Page Heading -->
-    <h1 class='h3 mb-4 text-gray-800'>Category: {{ title }}</h1>
+    <h1 class='h3 mb-4 text-gray-800'>Categoria: {{ title }}</h1>
     
     {% if auctions_count > 0 %}
         <div class='card mb-4'>
@@ -75,7 +75,7 @@
                             <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
                                 <div class='text-center'>
                                     <a class='btn btn-outline-dark mt-auto' href="{% url 'auction_details_view' auction.id %}">
-                                        View details
+                                        Ver detalles
                                     </a>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
     {% else %}
         <br>
         <div class='alert alert-info' role='alert'>
-            No active auctions in this category.
+            No hay subastas activas para esta categoria.
         </div>
     {% endif %}
 

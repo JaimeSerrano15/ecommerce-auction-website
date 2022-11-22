@@ -9,7 +9,7 @@
     
     <!-- Heading -->
     <div class='sidebar-heading'>
-        Categories
+        Categorias
     </div>
 
     {% for category in categories %}
@@ -35,12 +35,12 @@
     <!-- Product category and Product creator -->
     <h6>
         <span class='text-muted'>
-            Category: <span class='text-primary'>{{ auction.category }}</span>
+            Categoria: <span class='text-primary'>{{ auction.category }}</span>
         </span> &nbsp; | &nbsp; 
         <span class='text-muted'>
-            Listed by: <span class='text-primary'>{{ auction.creator }}</span>
+            Creada por: <span class='text-primary'>{{ auction.creator }}</span>
         </span> &nbsp; | &nbsp;
-        <span class='text-muted'>Created on {{ auction.date_created}}</span>
+        <span class='text-muted'>Creada: {{ auction.date_created}}</span>
     </h6>
     
     <!-- Product price -->
@@ -65,9 +65,9 @@
     <div>
         <a class='btn btn-outline-success mt-auto' href="{% url 'watchlist_edit' auction.id 'auction_details_view' %}">
             {% if auction.is_watched %}
-                Remove from Watchlist
+                Remover de la Lista de Interés
             {% else %}
-                Add to Watchlist
+                Agregar a la Lista de Interés
             {% endif %}
         </a>
     </div>
@@ -96,11 +96,11 @@
                 <div class='card mb-4'>
                     <div class='card-header'>
                         <i class='fas fa-lock'></i>
-                        Admin section
+                        Administrador
                     </div>
                     <div class='card-body'>
                         <a class='btn btn-danger mt-auto' href="{% url 'auction_close' auction.id %}">
-                            Close auction
+                            Cerrar Subasta
                         </a>
                     </div>
                 </div>
@@ -141,21 +141,21 @@
                                 <div class='card mb-4'>
                                     <div class='card-header'>
                                         <i class='fas fa-comments'></i>
-                                        Auction Details
+                                        Detalles de Subasta
                                     </div>
                                     <div class='card-body'>
 
                                         {% if auction.creator == user %}
                                             <div class='alert alert-success' role='alert'>
-                                                The item sold to <strong>{{ auction.buyer }}</strong> for <strong>&dollar;{{ auction.current_bid }}</strong>.
+                                                El articulo ha sido vendido a <strong>{{ auction.buyer }}</strong> por <strong>&dollar;{{ auction.current_bid }}</strong>.
                                             </div>
                                         {% elif auction.buyer == user %}
                                             <div class='alert alert-success' role='alert'>
-                                                Congratulations! Yours was the winning bid on <strong>{{ auction.title }}</strong>.
+                                                Felicidades! Su puja ha sido la ganadora en <strong>{{ auction.title }}</strong>.
                                             </div>
                                         {% else %}
                                             <div class='alert alert-warning' role='alert'>
-                                                This item has already been sold.
+                                                Este articulo ya ha sido vendido.
                                             </div>
                                         {% endif %}
                                     </div>
@@ -171,28 +171,28 @@
                                 <div class='card mb-4'>
                                     <div class='card-header'>
                                         <i class='fas fa-money-bill-alt'></i>
-                                        Bid
+                                        Puja
                                     </div>
                                     <div class='card-body'>
                                         <!-- Product price-->
                                         <h6>
                                             {% if auction.current_bid %}
-                                                Current price:<strong> &dollar;{{auction.current_bid}}</strong>
+                                                Puja actual:<strong> &dollar;{{auction.current_bid}}</strong>
                                             {% else %}
-                                                Starting price:<strong> &dollar;{{auction.starting_bid}}</strong>
+                                                Puja inicial:<strong> &dollar;{{auction.starting_bid}}</strong>
                                             {% endif %}
                                         </h6>
                                         <p>
                                             {% if auction.current_bid is None %}
                                                 {% if auction.creator != user %}
                                                     <div class='alert alert-secondary' role='alert'>
-                                                        Place the first bid on this auction.
+                                                        Coloca la primera puja en esta subasta.
                                                     </div>
                                                 {% endif %}
                                             {% elif auction.buyer is not None %}
                                                 {% if auction.creator == user %}
                                                     <div class='alert alert-secondary' role='alert'>
-                                                        The item sold to <strong>{{ auction.buyer }}</strong> for <strong>&dollar;{{ auction.current_bid }}</strong>.
+                                                        El articuo fue vendido a <strong>{{ auction.buyer }}</strong> por <strong>&dollar;{{ auction.current_bid }}</strong>.
                                                     </div>
                                                 {% endif %}
                                             {% endif %}
@@ -201,11 +201,11 @@
                                                 <p>
                                                     {% if auction.current_bid %}
                                                         <div class='alert alert-warning' role='alert'>
-                                                            Your bid must be greater than <strong>&dollar;{{ auction.current_bid|default:auction.starting_bid }}</strong>.
+                                                            Su puja debe de ser mayor a <strong>&dollar;{{ auction.current_bid|default:auction.starting_bid }}</strong>.
                                                         </div>
                                                     {% else %}
                                                         <div class='alert alert-warning' role='alert'>
-                                                            Your bid must be greater than or equal to <strong>&dollar;{{ auction.current_bid|default:auction.starting_bid }}</strong>.
+                                                            Su puja debe de ser mayor o igual a <strong>&dollar;{{ auction.current_bid|default:auction.starting_bid }}</strong>.
                                                         </div>
                                                     {% endif %}
                                                 </p>
@@ -218,10 +218,10 @@
                                                         {{ bid_form }}
                                                         <br>
                                                         <button type='submit' class='btn btn-primary'>
-                                                            Place a bid
+                                                            Ingrese una puja
                                                         </button>
                                                         <a href="{% url 'index' %}" class='btn btn-secondary'>
-                                                            Cancel
+                                                            Cancelar
                                                         </a>
                                                     </div>
                                                 </form>
@@ -235,7 +235,7 @@
                                     <div class='card mb-4'>
                                         <div class='card-header'>
                                             <i class='fas fa-comments'></i>
-                                            Comments
+                                            Comentarios
                                         </div>
                                         <div class='card-body'>
                                                 
@@ -248,10 +248,10 @@
                                                             {{ comment_form }}
                                                             <br>
                                                             <button type='submit' class='btn btn-success'>
-                                                                Add a comment
+                                                                Agregar un comentario
                                                             </button>
                                                             <a href="{% url 'index' %}" class='btn btn-secondary'>
-                                                                Cancel
+                                                                Cancelar
                                                             </a>
                                                         </div>
                                                     </form>
@@ -261,7 +261,7 @@
                                             {% for comment in comments %}
                                                 <div>
                                                     <div class='text-muted'>
-                                                        <strong>{{ comment.user|default:"Unknown" }}</strong> commented on {{ comment.date_created }}
+                                                        <strong>{{ comment.user|default:"Unknown" }}</strong> comentado el {{ comment.date_created }}
                                                     </div>
                                                 </div>
                                                 <div>
@@ -280,7 +280,7 @@
                                     <div class='card mb-4'>
                                         <div class='card-header'>
                                             <i class='fas fa-comments'></i>
-                                            Comments
+                                            Comentarios
                                         </div>
                                         <div class='card-body'>
                                             <!-- Comments -->
@@ -292,10 +292,10 @@
                                                             {{ comment_form }}
                                                             <br>
                                                             <button type='submit' class='btn btn-success'>
-                                                                Add a comment
+                                                                Agregar un comentario
                                                             </button>
                                                             <a href="{% url 'index' %}" class='btn btn-secondary'>
-                                                                Cancel
+                                                                Cancelar
                                                             </a>
                                                         </div>
                                                     </form>
@@ -304,7 +304,7 @@
                                             
                                             {% for comment in comments %}
                                                 <div>
-                                                    {{ comment.user|default:"Unknown" }} commented on {{ comment.date_created }}
+                                                    {{ comment.user|default:"Unknown" }} comentado el {{ comment.date_created }}
                                                 </div>
                                                 <div>
                                                     <p>{{ comment.comment }}</p>

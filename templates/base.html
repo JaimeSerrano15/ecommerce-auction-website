@@ -5,7 +5,7 @@
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         
-        <title>{% block title %}Auctions{% endblock %}</title>
+        <title>{% block title %}Subastas{% endblock %}</title>
 
         <link rel='icon' type='image/x-icon' href='{% static "images/favicon.ico" %}'>
 
@@ -34,7 +34,7 @@
                         <i class='fas fa-shopping-cart'></i>
                     </div>
                     <div class='sidebar-brand-text mx-3'>
-                        Auctions
+                        Subastas
                     </div>
                 </a>
                 
@@ -53,7 +53,7 @@
                 <li class='nav-item'>
                     <a class='nav-link' href="{% url 'active_auctions_view' %}">
                         <i class='fas fa-fw fa-list'></i>
-                        <span>ACTIVE AUCTIONS</span>
+                        <span>SUBASTAS ACTIVAS</span>
                     </a>
                 </li>
 
@@ -62,7 +62,7 @@
                     <li class='nav-item'>
                         <a class='nav-link' href="{% url 'watchlist_view' %}">
                             <i class='fas fa-fw fa-eye'></i>
-                            <span>WATCHLIST</span>
+                            <span>LISTA DE INTERES</span>
                         </a>
                     </li>
 
@@ -70,7 +70,7 @@
                     <li class='nav-item'>
                         <a class='nav-link' href="{% url 'auction_create' %}">
                             <i class='far fa-plus-square'></i>
-                            <span>CREATE AUCTION</span>
+                            <span>CREAR UNA SUBASTA</span>
                         </a>
                     </li>
                 {% endif %}
@@ -85,10 +85,12 @@
                 <li class='nav-item'>
                     <div class='nav-link'>
                         {% if user.is_authenticated %}
-                            <div class='sidebar-text-gray'>Signed in as:</div>
+                            <div class='sidebar-text-gray'>Ha ingresado como:</div>
                             <div class='sidebar-text-white'>{{ user.username }}</div>
+                            <div class='sidebar-text-white'><a href="www.google.com">Regresar al Mercado</a></div>
                         {% else %}
-                            <div class='sidebar-text-gray'>Not signed in.</div>
+                            <div class='sidebar-text-gray'>No se ha ingresado.</div>
+                            <div class='sidebar-text-white'><a href="www.google.com">Regresar al Mercado</a></div>
                         {% endif %}
                     </div>
                 </li>
@@ -168,23 +170,23 @@
                                     </a>
                                     <div class='dropdown-menu dropdown-menu-end'>
                                         <a class='dropdown-item' href=#>
-                                            <i class='fas fa-user'></i> User Profile
+                                            <i class='fas fa-user'></i> Perfil
                                         </a>
                                         <div class='dropdown-divider'></div>
                                         <a class='dropdown-item' href="{% url 'logout' %}">
-                                            <i class='fas fa-sign-out-alt'></i> Log Out
+                                            <i class='fas fa-sign-out-alt'></i> Salir
                                         </a>
                                     </div>
                                 </li>
                             {% else %}
                                 <li class='nav-item'>
                                     <a class='nav-link' href="{% url 'login' %}">
-                                        <i class='fas fa-sign-in-alt'></i>&nbsp;Log In
+                                        <i class='fas fa-sign-in-alt'></i>&nbsp;Ingresar
                                     </a>
                                 </li>
                                 <li class='nav-item'>
                                     <a class='nav-link' href="{% url 'register' %}">
-                                        <i class='fas fa-user-plus'></i>&nbsp;Register
+                                        <i class='fas fa-user-plus'></i>&nbsp;Registro
                                     </a>
                                 </li>
                             {% endif %}                            
@@ -211,7 +213,7 @@
                     <div class='container my-auto'>
                         <div class='copyright text-center my-auto'>
                             <span>
-                                Copyright &copy; <script>document.write(new Date().getFullYear())</script> Bob's Programming Academy.
+                                Copyright &copy; <script>document.write(new Date().getFullYear())</script> Empresaurios
                             </span>
                         </div>
                     </div>

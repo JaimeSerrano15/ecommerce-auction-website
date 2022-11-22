@@ -8,7 +8,7 @@
     
     <!-- Heading -->
     <div class='sidebar-heading'>
-        Categories
+        Categorias
     </div>
 
     {% for category in categories %}
@@ -32,11 +32,11 @@
     {% if success %}
         <br>
         <div id='success-alert' class='alert alert-success' role='alert'>
-            The new auction created successfully.
+            La subasta ha sido creada exitosamente.
         </div>
     {% else %}
-        <h1 class='h3 mb-4 text-gray-800'>Create Auction</h1>
-        <p>Enter the details of the new auction.</p>
+        <h1 class='h3 mb-4 text-gray-800'>Crear Nueva Subasta</h1>
+        <p>Ingrese los detalles de la nueva subasta.</p>
         
         <div class='card mb-4'>
             <div class='card-body'>
@@ -52,10 +52,10 @@
                             {% endfor %}
                             
                             <button type='submit' class='btn btn-primary'>
-                                Save
+                                Guardar
                             </button>
                             <a href="{% url 'active_auctions_view' %}" class='btn btn-secondary'>
-                                Cancel
+                                Cancelar
                             </a>
                         </div>
                     </form>

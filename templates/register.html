@@ -8,7 +8,7 @@
     
     <!-- Heading -->
     <div class='sidebar-heading'>
-        Categories
+        Categorias
     </div>
 
     {% for category in categories %}
@@ -29,7 +29,7 @@
 {% block body %}
 
     <!-- Page Heading -->
-    <h1 class='h3 mb-4 text-gray-800'>Register</h1>
+    <h1 class='h3 mb-4 text-gray-800'>Registro</h1>
     
     {% if message %}
         <div class='alert alert-danger mb-3' role='alert'>
@@ -78,7 +78,7 @@
                     <button type='submit' class='btn btn-primary'>Create Account</button>
                 </div>
                 <p>
-                    Already have an account? <a href="{% url 'login' %}">Log in here</a> 
+                    Ya tienes cuenta? <a href="{% url 'login' %}">¡Ingresa aqui!</a> 
                 </p>                                                          
             </form>
         </div>
